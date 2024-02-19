@@ -1,35 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import profile from "../assets/profile.png";
 
 const Landingpage = () => {
-  const [adminDetails, setAdminDetails] = useState({
-    name: "John Doe",
-    id: "12345",
-    role: "Supervisor",
-  });
+  // const [adminDetails, setAdminDetails] = useState({
+  //   name: "John Doe",
+  //   id: "12345",
+  //   role: "Supervisor",
+  // });
 
-  // Function to generate random admin profiles
-  const generateRandomAdmin = () => {
-    const roles = ["Director", "Doctor", "HOD", "Academic", "Paramedic"];
-    const randomRole = roles[Math.floor(Math.random() * roles.length)];
+  // // Function to generate random admin profiles
+  // const generateRandomAdmin = () => {
+  //   const roles = ["Director", "Doctor", "HOD", "Academic", "Paramedic"];
+  //   const randomRole = roles[Math.floor(Math.random() * roles.length)];
 
-    const newAdminDetails = {
-      name: `New Admin ${Math.floor(Math.random() * 100)}`,
-      id: `${Math.floor(Math.random() * 100000)}`,
-      role: randomRole,
-    };
+  //   const newAdminDetails = {
+  //     name: `New Admin ${Math.floor(Math.random() * 100)}`,
+  //     id: `${Math.floor(Math.random() * 100000)}`,
+  //     role: randomRole,
+  //   };
 
-    setAdminDetails(newAdminDetails);
-  };
+  //   setAdminDetails(newAdminDetails);
+  // };
 
-  // useEffect to update admin details every 3 seconds
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      generateRandomAdmin();
-    }, 3000);
+  // // useEffect to update admin details every 3 seconds
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     generateRandomAdmin();
+  //   }, 3000);
 
-    return () => clearInterval(intervalId);
-  }, []);
+  //   return () => clearInterval(intervalId);
+  // }, []);
 
   return (
     <div className="landingpage">
@@ -106,7 +106,7 @@ const Landingpage = () => {
         }
 
         .paragraph {
-          font-size: 20px;
+          font-size: 25px;
           color: #333;
           padding: 20px;
           text-align: center;
@@ -175,18 +175,18 @@ const Landingpage = () => {
           position: relative;
           padding: 25px 15px;
           background-color: #f9f7f7;
-          margin: 50px 0;
+          margin: 10px 5px;
           height: 250px;
-          width : 25%;
+          width: 25%;
           box-shadow: 0 2px 5px #ccc;
           text-align: left;
         }
 
         .top {
           border-radius: 25px 25px 0 0;
-          height: 100px;
+          height: 120px;
           width: 100%;
-          background-color: #C7C8CC;
+          background-color: #c7c8cc;
           position: absolute;
           top: 0;
           left: 0;
@@ -213,12 +213,34 @@ const Landingpage = () => {
         }
 
         .bottom {
-          margin-top: 70px;
+          margin-top: 80px;
         }
 
         .info {
-          margin: 20px 0;
+          margin: 20px 0; /* Adjust margin for better spacing */
           color: #000000;
+          display: flex;
+          align-items: center;
+        }
+
+        .info i {
+          margin-right: 10px; /* Adjust margin for better spacing */
+        }
+
+        .sameline {
+          flex: 1;
+          background-color: #b4b4b8;
+          clip-path: polygon(10% 0, 100% 0%, 100% 100%, 0 100%, 0% 0%);
+          padding: 20px;
+          display: flex;
+          justify-content: space-evenly; /* Adjust spacing between cards */
+          align-items: flex-start;
+           {
+            /* flex-direction: column; */
+          }
+           {
+            /* align-items: center; */
+          }
         }
       `}</style>
 
@@ -226,7 +248,9 @@ const Landingpage = () => {
         <div>
           <nav className="navbar navbar-dark bg-dark border-bottom border-body">
             <div className="container-fluid">
-              <a  href="http://localhost:3000/" className="navbar-brand">Medical Claims</a>
+              <a href="http://localhost:3000/" className="navbar-brand">
+                <img src="./logo.png" alt="IIT Ropar Logo" height="80" />
+              </a>
               <div className="d-flex">
                 <button className="btn btn-outline-success me-2" type="submit">
                   Login
@@ -240,7 +264,7 @@ const Landingpage = () => {
         </div>
         <div className="half-yellow">
           <div className="title-box">
-            About
+            Medical Claims
             <div className="title-line"></div>
           </div>
           <p className="paragraph">
@@ -253,47 +277,80 @@ const Landingpage = () => {
           <div className="title-box">
             Medical Department
             <div className="title-line"></div>
+          </div>
+        </div>
+        <div className="sameline">
+          <div className="card">
+            <div className="top">
+              <h2 className="name">Hitesh Singla</h2>
+              <img className="circle-img" src="./hitesh.jpg" alt="avatar_img" />
+            </div>
+            <div className="bottom">
+              <p className="info">
+                <i className="fas fa-user"></i> Director
+              </p>
+              <p className="info">
+                <i className="fas fa-phone"></i> 9050477612
+              </p>
+              <p className="info">
+                <i className="fas fa-envelope"></i> hiteshsingla071@gmail.com
+              </p>
+            </div>
+          </div>
+          <div className="card">
+            <div className="top">
+              <h2 className="name">Mohit Meena</h2>
+              <img className="circle-img" src={profile} alt="avatar_img" />
+            </div>
+            <div className="bottom">
+              <p className="info">
+                <i className="fas fa-user"></i> Dean
+              </p>
+              <p className="info">
+                <i className="fas fa-phone"></i> 9050477612
+              </p>
+              <p className="info">
+                <i className="fas fa-envelope"></i> mohit@gmail.com
+              </p>
+            </div>
+          </div>
+        </div>
 
-            
+        <div className="sameline">
+          <div className="card">
+            <div className="top">
+              <h2 className="name">Mohit Kumar</h2>
+              <img className="circle-img" src="./hitesh.jpg" alt="avatar_img" />
+            </div>
+            <div className="bottom">
+              <p className="info">
+                <i className="fas fa-user"></i>HOD
+              </p>
+              <p className="info">
+                <i className="fas fa-phone"></i>9050477612
+              </p>
+              <p className="info">
+                <i className="fas fa-envelope"></i>mohit2gmail.com
+              </p>
+            </div>
           </div>
           <div className="card">
             <div className="top">
-              <h2 className="name">Hitesh</h2>
+              <h2 className="name">Imrozepal singh</h2>
               <img className="circle-img" src={profile} alt="avatar_img" />
             </div>
             <div className="bottom">
-              <p className="info">HOD</p>
-              <p className="info">9050477612</p>
-              <p className="info">hiteshsingla071gmail.com</p>
+              <p className="info">
+                <i className="fas fa-user"></i>Dean
+              </p>
+              <p className="info">
+                <i className="fas fa-phone"></i>9050477612
+              </p>
+              <p className="info">
+                <i className="fas fa-envelope"></i>imrozepal@gmail.com
+              </p>
             </div>
           </div>
-          <div className="card">
-            <div className="top">
-              <h2 className="name">Hitesh</h2>
-              <img className="circle-img" src={profile} alt="avatar_img" />
-            </div>
-            <div className="bottom">
-              <p className="info">HOD</p>
-              <p className="info">9050477612</p>
-              <p className="info">hiteshsingla071gmail.com</p>
-            </div>
-          </div>
-          <div className="admin-details-container">
-            <div className="admin-details">
-              {/* Display the profile photo */}
-              <div className="profile-photo">
-                <img src={profile} alt="Admin Profile" />
-              </div>
-              {/* Display the updated admin details */}
-              Admin Name: {adminDetails.name}
-              <br />
-              Admin ID: {adminDetails.id}
-              <br />
-              Admin Role: {adminDetails.role}
-            </div>
-            <div className="hemicircle"></div>
-          </div>
-          
         </div>
 
         <div class="b-example-divider"></div>
@@ -310,7 +367,10 @@ const Landingpage = () => {
                 </a>
               </li>
               <li class="nav-item">
-                <a href="https://twitter.com/?lang=en" class="nav-link px-2 text-body-secondary">
+                <a
+                  href="https://twitter.com/?lang=en"
+                  class="nav-link px-2 text-body-secondary"
+                >
                   Twitter
                 </a>
               </li>
@@ -332,7 +392,14 @@ const Landingpage = () => {
               </li>
             </ul>
             <p class="text-center text-body-secondary">
-              &copy; Indian Institute of technology, Ropar
+              Call Us:- +91-1881-242124
+            </p>
+            <p class="text-center text-body-secondary">
+              Address:- IIT Ropar, Nangal Road, Rupnagar, Punjab, INDIA 140001
+            </p>
+
+            <p class="text-center text-body-secondary">
+              &copy; 2016 MEDICAL CENTER. All Rights Reserved
             </p>
           </footer>
         </div>
